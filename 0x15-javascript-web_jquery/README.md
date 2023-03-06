@@ -1,1 +1,1 @@
-# Javascript Web Query
+# Javascript Web JQuery
