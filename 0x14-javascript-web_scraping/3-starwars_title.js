@@ -1,9 +1,12 @@
 #!/usr/bin/node
+// A script to get status code
 const request = require('request');
 const id = process.argv[2];
-request('http://swapi.co/api/films/' + id + '/', function (error, body) {
-  if (error == null) {
-    const json = JSON.parse(body);
-    console.log(json.title);
+const base = 'https://swapi-api.hbtn.io/api/films/';
+let res;
+request.get(base + id + '/?format=json', (error, response, body) => {
+  if (response && !error) {
+    res = JSON.parse(body);
+    console.log(res.title);
   }
 });
